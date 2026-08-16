@@ -257,6 +257,21 @@ var EntityService = {
                     Vibe.vibrate('double');
                 }
             );
+        } else if (domain === "button" || domain === "input_button") {
+            appState.haws.callService(
+                domain,
+                "press",
+                {},
+                { entity_id: entity_id },
+                function(data) {
+                    log(JSON.stringify(data));
+                    Vibe.vibrate("short");
+                },
+                function(error) {
+                    log("no response");
+                    Vibe.vibrate("double");
+                }
+            );
         } else if (domain === "lock") {
             var entity = appState.ha_state_dict[entity_id];
             if (!entity) {
