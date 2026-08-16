@@ -241,7 +241,11 @@ var EntityService = {
             domain === "light" ||
             domain === "input_boolean" ||
             domain === "script" ||
-            domain === "cover"
+            domain === "cover" ||
+            domain === "fan" ||
+            domain === "humidifier" ||
+            domain === "siren" ||
+            domain === "binary_sensor"
         ) {
             appState.haws.callService(
                 domain,
