@@ -241,7 +241,10 @@ var EntityService = {
             domain === "light" ||
             domain === "input_boolean" ||
             domain === "script" ||
-            domain === "cover"
+            domain === "cover" ||
+            domain === "fan" ||
+            domain === "humidifier" ||
+            domain === "siren"
         ) {
             appState.haws.callService(
                 domain,
@@ -255,6 +258,21 @@ var EntityService = {
                 function(error) {
                     log('no response');
                     Vibe.vibrate('double');
+                }
+            );
+        } else if (domain === "button" || domain === "input_button") {
+            appState.haws.callService(
+                domain,
+                "press",
+                {},
+                { entity_id: entity_id },
+                function(data) {
+                    log(JSON.stringify(data));
+                    Vibe.vibrate("short");
+                },
+                function(error) {
+                    log("no response");
+                    Vibe.vibrate("double");
                 }
             );
         } else if (domain === "lock") {
