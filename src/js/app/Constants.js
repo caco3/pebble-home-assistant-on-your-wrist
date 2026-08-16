@@ -5,8 +5,8 @@ const Feature = require('platform/feature');
 
 const Constants = {
     // App versioning
-    appVersion: '1.0',
-    confVersion: '1.2', // Also update on the html page itself!
+    appVersion: '1.2', // Also update on the html page itself!
+    confVersion: '1.2',
     configPageUrl: 'https://caco3.github.io/pebble-home-assistant-on-your-wrist/config/v1.2.html',
 
     // Debug settings
